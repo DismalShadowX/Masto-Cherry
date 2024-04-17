@@ -325,6 +325,16 @@ namespace :api, format: false do
     namespace :admin do
       resources :accounts, only: [:index]
     end
+
+    resources :notifications, only: [:index, :show] do
+      collection do
+        post :clear
+      end
+
+      member do
+        post :dismiss
+      end
+    end
   end
 
   namespace :web do
