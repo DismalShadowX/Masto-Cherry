@@ -53,7 +53,10 @@ ia:
         all: Toto
         title: Location
       moderation:
+        active: Active
+        all: Toto
         disabled: Disactivate
+      moderation_notes: Notas de moderation
       most_recent_activity: Activitate plus recente
       most_recent_ip: IP plus recente
       public: Public
@@ -84,12 +87,15 @@ ia:
       action_types:
         confirm_user: Confirmar le usator
         create_announcement: Crear annuncio
+        create_ip_block: Crear un regula IP
+        destroy_announcement: Deler annuncio
         destroy_ip_block: Deler le regula IP
         destroy_status: Deler le message
         destroy_unavailable_domain: Deler le dominio non disponibile
         disable_2fa_user: Disactivar 2FA
         disable_user: Disactivar le usator
         enable_user: Activar le usator
+        promote_user: Promover usator
         reset_password_user: Reinitialisar contrasigno
         update_announcement: Actualisar annuncio
         update_custom_emoji: Actualisar emoji personalisate
@@ -125,9 +131,12 @@ ia:
       upload: Incargar
     dashboard:
       active_users: usatores active
+      interactions: interactiones
       media_storage: Immagazinage de medios
       new_users: nove usatores
       opened_reports: reportos aperte
+      top_languages: Linguas le plus active
+      top_servers: Servitores le plus active
       website: Sito web
     domain_allows:
       add_new: Permitter federation con dominio
@@ -135,6 +144,7 @@ ia:
       confirm_suspension:
         cancel: Cancellar
       domain: Dominio
+      edit: Modificar un bloco de dominio
       export: Exportar
       import: Importar
       private_comment: Commento private
@@ -145,19 +155,25 @@ ia:
       domain: Dominio
       new:
         create: Adder un dominio
+        title: Blocar un nove dominio de e-mail
     export_domain_allows:
       no_file: Necun file seligite
     follow_recommendations:
       language: Per lingua
       status: Stato
     instances:
+      content_policies:
+        reason: Ration public
       dashboard:
+        instance_accounts_dimension: Contos le plus sequite
         instance_languages_dimension: Linguas principal
       delivery:
         unavailable: Non disponibile
       empty: Necun dominios trovate.
       private_comment: Commento private
       public_comment: Commento public
+      total_blocked_by_us: Blocate per nos
+      total_followed_by_us: Sequite per nos
     invites:
       deactivate_all: Disactivar toto
       filter:
@@ -185,6 +201,7 @@ ia:
       cancel: Cancellar
       delete_and_resolve: Deler le messages
       notes:
+        create: Adder un nota
         delete: Deler
       skip_to_actions: Saltar al actiones
       status: Stato
@@ -193,6 +210,11 @@ ia:
     roles:
       everyone: Permissiones predefinite
       privileges:
+        delete_user_data: Deler le datos de usator
+        manage_announcements: Gerer le annuncios
+        manage_invites: Gerer le invitationes
+        manage_rules: Gerer le regulas
+        manage_settings: Gerer le parametros
         manage_users: Gerer usatores
     rules:
       delete: Deler
