@@ -3,31 +3,6 @@
 
 /* CSS variables */
 :root {
-  
-/* Toot button Starts */
-.ui__header__links > .button[href="/publish"],
-.compose-form__publish-button-wrapper > .button.button--block {
-  font-size: 0 !important;
-}
-
-.ui__header__links > .button[href="/publish"]::after,
-.compose-form__publish-button-wrapper > .button.button--block::after {
-  content: "Toot! 🐘💨"; 
-  text-transform: none;
-  font-size: 15px;
-  position: relative;
-  bottom: -2px;
-}
-
-/* Toot button Ends */
-
-/* Footer code Starts*/
-.footer-color {
-   color: #9C27B0 !important;
-}
-
-/* Footer code Ends*/
-  
   /* Brand colors */
   --color-brand-twitter: #1d9bf0;
   --color-brand-twitter-bg: #15202b;
