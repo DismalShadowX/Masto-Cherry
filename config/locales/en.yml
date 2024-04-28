@@ -949,7 +949,7 @@ en:
       delete: Delete
       edit_preset: Edit warning preset
       empty: You haven't defined any warning presets yet.
-      title: Manage warning presets
+      title: Warning presets
     webhooks:
       add_new: Add endpoint
       delete: Delete
@@ -1766,8 +1766,8 @@ en:
   tags:
     does_not_match_previous_name: does not match the previous name
   themes:
-    contrast: Mastodon (High contrast)
     default: Mastodon (Dark)
+    contrast: Mastodon (High contrast)
     mastodon-light: Mastodon (Light)
     tangerineui: Tangerine UI
     tangerineui-purple: Tangerine UI (Purple)
