@@ -2376,6 +2376,13 @@ body.embed .detailed-status__meta .detailed-status__link .icon-retweet,
   /* Move to last */
   order: 9999;
   width: auto;
+
+/* ...except on those that have label with GitHub, github, YouTube or similar */
+.layout-multiple-columns .account__header__bio .account__header__fields dl:has(dt[title*="github" i], dt[title*="youtube" i], dt[title*="website" i], dt[title*="twitch" i], dt[title*="twitter" i], dt[title="x" i], dt[title*="discord" i], dt[title*="linkedin" i], dt[title*="instagram" i], dt[title="IG"], dt[title~="Mastodon account" i], dt[title~="Mastodon account" i], dt[title~="account" i], dt[title="Alt account" i], dt[title*="mastodon" i], dt[title*="masto" i], dt[title*="ko-fi" i], dt[title*="kofi" i], dt[title*="paypal" i], dt[title*="patreon" i], dt[title*="threads" i], dt[title*="bluesky" i], dt[title*="nostr" i]) {
+
+  /* Move to last */
+  order: 9999;
+  width: auto;
 }
 
 /* Hide labels that show "Website", "YouTube", etc. */
