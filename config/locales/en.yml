@@ -1766,8 +1766,9 @@ en:
   tags:
     does_not_match_previous_name: does not match the previous name
   themes:
-    default: Mastodon (Dark)
     contrast: Mastodon (High contrast)
+    default: Mastodon (Dark)
+    mastodon-light: Mastodon (Light)
     system: Automatic (use system theme)
   time:
     formats:
