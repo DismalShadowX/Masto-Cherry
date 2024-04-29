@@ -1,0 +1,370 @@
+/* Mastodon CSS Tweaks by @nileane@nileane.fr
+   Collection of CSS tweaks initally made for my personal instance nileane.fr
+   
+   version: 1.6.4
+
+   Learn more: https://nileane.fr/@nileane/110615776486729850
+*/
+
+
+
+/* Colors
+   ------ */
+:root {
+    --color-accent: #F0926A;
+    --color-accent-faded: #ecb39b;
+    --color-accent-bg: rgb(240, 146, 106, .1);
+    --color-accent-focus: rgba(240, 146, 105, 0.7);
+    --color-accent-fg: rgba(0, 0, 0, .7); /* Text color on buttons. - Use a dark value for light accent colors, use a light value for dark accent colors. */
+    --color-neutral: #9baec8;
+    --color-verified: #79bd9a;
+} 
+
+
+/* Hiding a bunch of stuff.
+   ------------------------ */
+.about__header, /* Hide header section on about page */
+.about__meta, /* Hide meta section on about page */
+div#mastodon > div > div > div:nth-child(2) > div:nth-child(3) > div > div > div:nth-child(3) > hr,
+.navigation-panel__legal > hr,
+.navigation-panel > .column-link:only-of-type, /* Hide Explore tab for logged-out users */
+.navigation-panel__sign-in-banner + .navigation-panel__legal + .flex-spacer + .getting-started__trends, /* Hide Trending section for logged-out users */
+.about__footer, /* Hide meta footer */
+.server-banner__introduction, /* Hide generic mastodon server introduction in sidebar */
+.search-banner ~ .search, /* Hide search field for logged out users */
+.ui__header__links .button.button-tertiary,
+a.column-link[href="/public"], /* Hide Federated timeline button in nav */
+.getting-started__trends h4, /* Hide Trending header in sidebar */
+.account__header__bio .account__header__fields > dl:first-child, /* Hide "Joined" field on profiles */
+.sign-in-banner button.button {
+    display: none;
+}
+
+
+
+/* Hide vertical navbar for logged out users
+   ----------------------------------------- */
+   @media screen and (max-width:889px) {
+    .columns-area__panels__main:not(:has(+ .columns-area__panels__pane .columns-area__panels__pane__inner .navigation-panel .column-link[href="/notifications"])) {
+        width: 100%;
+        margin-right: -55px;
+    }
+    .columns-area__panels__pane__inner:not(:has(.navigation-panel .column-link[href="/notifications"])) {
+        display: none;
+    }
+}
+
+
+
+body { /* Use SF Rounded on Apple devices, fallback to usual Mastodon font on other devices */
+    font-family: ui-rounded, "mastodon-font-sans-serif", sans-serif;
+}
+
+
+
+#logo-symbol-wordmark > path:nth-child(1) { /* grayscale Mastodon logo */
+    fill: var(--color-neutral);
+    opacity: .4;
+}
+.loading-bar { /* Loading Bar */
+    background-color: var(--color-accent);
+}
+
+
+.react-toggle--checked .react-toggle-track { /* thumb switches */
+    background-color: var(--color-neutral);
+}
+.react-toggle--checked .react-toggle-thumb {
+    border-color: var(--color-neutral);
+}
+
+.poll__chart { /* poll charts */
+    background: var(--color-accent-faded);
+}
+.poll__chart.leading {
+    background: var(--color-accent);
+}
+
+
+
+/* Column header tweaks : backdrop blur
+   ------------------------------------ */
+.tabs-bar__wrapper {
+    background-color: transparent;
+    border-radius: 4px 4px 0 0;
+}
+@media screen and (min-width:1175px) {
+    .tabs-bar__wrapper {
+        box-shadow:
+            inset 0 10px #191B21,
+            0 -10px #191B21;
+    }
+}
+.column-header,
+.column-back-button {
+    background-color: rgba(49, 53, 68, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+.column-header__button,
+.column-header__back-button {
+    background-color: transparent;
+}
+.column-header.active .column-header__icon {
+    color: #FFF;
+}
+
+
+/* Profile tweaks
+   -------------- */
+.account__header__bio .account__header__fields dl:nth-child(2) { /* Add a corner radius to the second profile field because we're hiding the Joined field */
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    margin-top: 0;
+}
+.account__header__bio .account__header__fields .verified + .verified { /* Fix double border between 2 successive verified fields */
+    margin-top: 0;
+    border-top-width: 0;
+}
+.account__header__bio .account__header__fields .verified a, .account__header__bio .account__header__fields .verified dd { /* Verified field tweak: vivid green text */
+    color: var(--color-verified);
+}
+.account__header__bio .account__header__fields .verified dt { /* Verified field tweak: restore default field title color */
+    color: #606984;
+}
+.account__header__bio .account__header__fields .verified { /* Verified field tweak: restore default background and border */
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    border-bottom: 1px solid #313543;
+    background: none;
+}
+.account__header__extra .account__header__fields .verified dd span:first-child { /* Verified field tweak: adding a green background circle to the checkmark icon */
+    display: inline-block;
+    background-color: var(--color-verified);
+    border-radius: 50px;
+    width: 1.2em;
+    height: 1.2em;
+    line-height: 1.2;
+    text-align: center;
+    margin-right: 2px;
+}
+.account__header__extra .account__header__fields .verified dd span:first-child i { /* white checkmark */
+    color: #1f232b;
+    font-size: 85%;
+    transform: scale(.9);
+}
+
+
+
+/* New toots glow
+   -------------- */
+.column-header__wrapper.active:before {
+    background: radial-gradient(ellipse, var(--color-accent), rgba(99, 100, 255, 0) 60%);
+    opacity: 40%;
+    }
+.column-header__wrapper.active {
+    box-shadow: 0 1px 0 #393f4f;
+}
+
+
+
+/* Trending hashtags
+   ----------------- */
+.trends__item__sparkline path:last-child {
+    stroke: var(--color-accent) !important;
+}
+.trends__item__sparkline path:first-child {
+    fill: var(--color-accent) !important;
+    opacity: 20%;
+}
+
+
+
+/* Buttons and links
+   ----------------- */
+.app-body .button,
+.button.logo-button,
+.rules-list li:before,
+.icon-with-badge__badge {
+    background-color: var(--color-accent);
+    color: var(--color-accent-fg);
+}
+.button.button-tertiary,
+.account__header__fields a,
+.account__header__bio .account__header__fields a,
+.reply-indicator__content a.unhandled-link,
+.status__content a.unhandled-link,
+.column-back-button,
+.about__section__title,
+.prose a,
+.column-link--transparent.active,
+.column-header > .column-header__back-button,
+.column-header__back-button,
+.interaction-modal__icon,
+.status__content a.mention,
+.status__content__read-more-button {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+.status__action-bar__dropdown .icon-button.active,
+.account__relationship .icon-button.active,
+.account__header__tabs__buttons .icon-button.active {
+    color: var(--color-accent);
+}
+.column-link--transparent.active {
+    font-weight: bold;
+}
+.copypaste input {
+    border-color: var(--color-accent);
+}
+.app-body .button:not(.button-secondary):active,
+.app-body .button:not(.button-secondary):focus,
+.app-body .button:not(.button-secondary):hover,
+.button.button-tertiary:active,
+.button.button-tertiary:focus,
+.button.button-tertiary:hover,
+.button.logo-button:active,
+.button.logo-button:focus,
+.button.logo-button:hover {
+    background-color: var(--color-accent-focus);
+}
+.dropdown-menu__item a:active,
+.dropdown-menu__item a:focus,
+.dropdown-menu__item a:hover,
+.dropdown-menu__item button:active,
+.dropdown-menu__item button:focus,
+.dropdown-menu__item button:hover {
+    background: var(--color-accent);
+    color: var(--color-accent-fg);
+    outline: 0;
+}
+
+.privacy-dropdown.active .privacy-dropdown__value.active,
+.privacy-dropdown__option.active,
+.privacy-dropdown__option:hover {
+    background-color: var(--color-accent);
+    color: var(--color-accent-fg);
+}
+.privacy-dropdown__option.active:hover {
+    background-color: var(--color-accent-focus);
+}
+.privacy-dropdown__option.active .privacy-dropdown__option__content, 
+.privacy-dropdown__option.active .privacy-dropdown__option__content strong, 
+.privacy-dropdown__option:hover .privacy-dropdown__option__content, 
+.privacy-dropdown__option:hover .privacy-dropdown__option__content strong,
+.privacy-dropdown.active .privacy-dropdown__value.active .icon-button,
+.privacy-dropdown .icon-button.inverted.active {
+    color: var(--color-accent-fg);
+}
+
+.button.button-tertiary.button--confirmation,
+.button.button-tertiary.button--destructive {
+    background-color: transparent;
+}
+.button.button-tertiary.button--confirmation:active, 
+.button.button-tertiary.button--confirmation:focus, 
+.button.button-tertiary.button--confirmation:hover {
+    background-color: #79bd9a;
+}
+.button.button-tertiary.button--destructive:active, 
+.button.button-tertiary.button--destructive:focus, 
+.button.button-tertiary.button--destructive:hover {
+    background-color: #df405a;
+}
+.status__content a.hashtag { /* using a faded color variant for hashtags links */
+    color: var(--color-accent-faded);
+}
+.sign-in-banner .button {
+    padding: 7px 18px;
+}
+.app-body .sign-in-banner .button,
+.app-body .ui__header__links .button,
+.app-body .button.button-secondary {
+    color: var(--color-neutral);
+    background: transparent;
+    border: 0 none;
+    box-shadow: inset 0 0 0 1px rgba(155, 174, 200, .4);
+}
+.app-body .sign-in-banner .button:hover,
+.app-body .ui__header__links .button:hover,
+.app-body .button.button-secondary:hover {
+    color: #222;
+    background: var(--color-neutral);
+    border: 0 none;
+    box-shadow: inset 0 0 0 1px var(--color-neutral);
+}
+
+
+
+/* Notifications
+   ------------- */
+.notification.unread::before, .status__wrapper.unread::before {
+    border-left: 4px solid var(--color-accent);
+}
+
+
+
+/* Give DMs in the timeline a specific look
+   ---------------------------------------- */
+.status-direct .status__content,
+.detailed-status-direct .status__content {
+    padding: 0.6em 1em .7em;
+    background: var(--color-accent-bg);
+    border-radius: 0 15px 15px 15px;
+    display: inline-block;
+}
+.status.status-direct .status__relative-time,
+.detailed-status-direct .fa.fa-at {
+    color: var(--color-accent);
+}
+.status-direct.muted .status__content {
+    background: rgba(155, 174, 200, 0.1);
+}
+
+
+
+/* Custom About/Home page for nileane.fr
+   ------------------------------------- */
+#mastodon > div > div > div.columns-area__panels > div.columns-area__panels__main > div.columns-area.columns-area--mobile > div > div > div.about__section.active:nth-of-type(3) > div.about__section__title {
+    display: none;
+}
+.about__section__title {
+    color: #dfdfdf !important;
+} 
+.about__section__body {
+    border: 0 !important;
+    padding-bottom: 3em;
+}
+#mastodon > div > div > div.columns-area__panels > div.columns-area__panels__main > div.columns-area.columns-area--mobile > div > div > div.about__section.active:not(:nth-of-type(3)) > div.about__section__body {
+    border: 0 !important;
+    background-color: #313543;
+    border-radius: 0 0 4px 4px;
+}
+.about__section__body .prose img {
+    width: 40px;
+    border-radius: 5px;
+    float: left;
+    margin: 2px 12px 0 7px;
+}
+.about__section__body .prose hr {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    border-width: 3px;
+}
+.about__section__body .prose a {
+    color: var(--color-neutral);
+    text-decoration: none;
+}
+.about__section__body .prose a:hover {
+    color: var(--color-neutral);
+    text-decoration: none;
+}
+.about__section__body .prose small {
+    margin-left: -2em;
+    display: block;
+    color: #606984;
+    font-weight: bold;
+    font-size: 80%;
+    float: left;
+}

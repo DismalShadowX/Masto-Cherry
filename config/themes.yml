@@ -6,3 +6,8 @@ mastodon-bird-ui-dark: styles/mastodon-bird-ui-dark.scss
 mastodon-bird-ui-contrast: styles/mastodon-bird-ui-contrast.scss
 mastodon-bird-ui-light: styles/mastodon-bird-ui-light.scss
 mastodon-bird-ui-accessible: styles/mastodon-bird-ui-accessible.scss
+tangerineui: styles/tangerineui.scss
+tangerineui-purple: styles/tangerineui-purple.scss
+tangerineui-cherry: styles/tangerineui-cherry.scss
+tangerineui-peach: styles/tangerineui-peach.scss
+tangerineui-lemon: styles/tangerineui-lemon.scss
