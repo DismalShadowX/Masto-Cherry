@@ -1769,6 +1769,11 @@ en:
   themes:
     contrast: Mastodon (High contrast)
     default: Mastodon (Dark)
+    tangerineui: Tangerine
+    tangerineui-purple: Tangerine UI (Purple)
+    tangerineui-cherry: Tangerine UI (Cherry)
+    tangerineui-peach: Tangerine UI (Peach)
+    tangerineui-lemon: Tangerine UI (Lemon)
     mastodon-light: Mastodon (Light)
     mastodon-bird-ui-light: Bagel (Light)
     mastodon-bird-ui-dark: Bagel (Dark)
