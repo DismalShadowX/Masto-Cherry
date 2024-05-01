@@ -76,12 +76,13 @@ class Trends::Statuses < Trends::Base
 
     # Now that all trends have up-to-date scores, and all the ones below the threshold have
     # been removed, we can recalculate their positions
+    
     # Retrieve trending statuses with a limit of 10
     trending_statuses = query.limit(10).to_arel.load
 
     # Process the retrieved trending statuses
     trending_statuses.each do |status|
-    # Process each status here
+      # Process each status here
     end
   end
 
