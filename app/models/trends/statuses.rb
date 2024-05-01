@@ -56,7 +56,7 @@ class Trends::Statuses < Trends::Base
   end
 
   def query
-    Query.new(key_prefix, klass)
+    Query.new(key_prefix, klass).limit(10)
   end
 
   def refresh(at_time = Time.now.utc)
