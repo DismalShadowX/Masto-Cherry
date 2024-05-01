@@ -79,11 +79,11 @@ class Trends::Statuses < Trends::Base
     # Retrieve trending statuses with a limit of 10
     trending_statuses = query.limit(10).to_arel.load
 
-  # Process the retrieved trending statuses
-  trending_statuses.each do |status|
+    # Process the retrieved trending statuses
+    trending_statuses.each do |status|
     # Process each status here
+    end
   end
-end
 
   def request_review
     StatusTrend.pluck('distinct language').flat_map do |language|
