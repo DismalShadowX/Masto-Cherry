@@ -55,8 +55,10 @@ class Trends::Statuses < Trends::Base
     record_used_id(status.id, at_time)
   end
 
-  def query
-    Query.new(key_prefix, klass).limit(10)
+  def query(limit = nil)
+    query = Query.new(key_prefix, klass)
+    query.limit(limit) if limit.present?
+    query
   end
 
   def refresh(at_time = Time.now.utc)
@@ -74,7 +76,7 @@ class Trends::Statuses < Trends::Base
 
     # Now that all trends have up-to-date scores, and all the ones below the threshold have
     # been removed, we can recalculate their positions
-    StatusTrend.recalculate_ordered_rank
+    query(10).refresh(at_time)
   end
 
   def request_review
