@@ -76,7 +76,7 @@ class Trends::Statuses < Trends::Base
 
     # Now that all trends have up-to-date scores, and all the ones below the threshold have
     # been removed, we can recalculate their positions
-    query(10).refresh(at_time)
+    query.limit(10).refresh(at_time)
   end
 
   def request_review
