@@ -1771,6 +1771,10 @@ en:
     contrast: Mastodon (High contrast)
     default: Mastodon (Dark)
     mastodon-light: Mastodon (Light)
+    mastodon-bird-ui-light: Bagel (Light)
+    mastodon-bird-ui-dark: Bagel (Dark)
+    mastodon-bird-ui-contrast: Bagel (High contrast)
+    mastodon-bird-ui-accessible: Bagel (Ultra accessible)
     system: Automatic (use system theme)
   time:
     formats:
