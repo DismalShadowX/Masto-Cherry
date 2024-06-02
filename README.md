@@ -1,3 +1,16 @@
+# Everything Bagel instance 
+
+[![Ruby Testing](https://github.com/DismalShadowX/Masto-Cherry/actions/workflows/test-ruby.yml/badge.svg)](https://github.com/DismalShadowX/Masto-Cherry/actions/workflows/test-ruby.yml)
+[![Crowdin](https://badges.crowdin.net/mastodon/localized.svg)][crowdin]
+
+[crowdin]: https://crowdin.com/project/mastodon
+
+I don't intend to stray very far from mainline Mastodon with this fork.
+
+Everything Bagel is a fork of [Mastodon](https://github.com/mastodon/mastodon). Upstream's README file is reproduced below.
+
+---
+
 <h1><picture>
   <source media="(prefers-color-scheme: dark)" srcset="./lib/assets/wordmark.dark.png?raw=true">
   <source media="(prefers-color-scheme: light)" srcset="./lib/assets/wordmark.light.png?raw=true">
