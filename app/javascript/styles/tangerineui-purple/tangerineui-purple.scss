@@ -8,7 +8,7 @@
 
 /* 📄 Meta */
 :root {
-    --version: "v2.0.0-pre5~";
+    --version: "v2.0.0-pre6~";
 
     --variant-name: "Purple";
     --variant-emoji: "\1FABB\00A0";
@@ -2944,6 +2944,24 @@ div[tabindex="-1"] + div[tabindex="-1"] > .status__wrapper > .status-reply.statu
     margin-top: 2px;
     font-size: 12px;
 }
+.app-body .status-card:has(+ .more-from-author) {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.app-body .status-card + .more-from-author {
+    background-color: var(--color-content-secondary-bg);
+    border: 1px solid var(--color-lines);
+    border-top: 0;
+}
+.app-body .more-from-author {
+    color: var(--color-content-fg);
+}
+.app-body .more-from-author .logo {
+    color: var(--color-content-fg);
+} 
+.app-body .more-from-author a:is(:active, :hover, :focus) {
+    color: var(--color-accent);
+}
 .app-body .status__content p {
     margin-bottom: 12px;
 }
@@ -3322,6 +3340,9 @@ div[tabindex="-1"] + div[tabindex="-1"] > .status__wrapper > .status-reply.statu
     color: var(--color-accent);
     background-color: var(--color-accent-bg);
 }
+.app-body .column-header__button.active .icon {
+    transform: none;
+}
 @media screen and (max-width:1174px) {
     .app-body:not(.layout-multiple-columns) .column-header__wrapper::after,
     .app-body:not(.layout-multiple-columns) .column-back-button::after {
@@ -3512,12 +3533,24 @@ div[tabindex="-1"] + div[tabindex="-1"] > .status__wrapper > .status-reply.statu
         position: fixed;
         top: 0;
         width: 100%;
-        z-index: 1;
+        z-index: 2;
     }
     @media (display-mode: standalone) {
         .app-body:not(.layout-multiple-columns) .ui::after {
             box-shadow: 0 -10px 0 10px #191b22;
             border-radius: 15px 15px 0 0;
+        }
+        @media (prefers-color-scheme: light) {
+            .app-body.theme-system .ui::after {
+                box-shadow: 0 -10px 0 10px #f3f5f7;
+                border-radius: 15px 15px 0 0;
+            }
+        }
+        @media (prefers-color-scheme: dark) {
+            .app-body.theme-system .ui::after {
+                box-shadow: 0 -10px 0 10px #191b22;
+                border-radius: 15px 15px 0 0;
+            }
         }
     }
     .app-body:not(.layout-multiple-columns) .column-header__collapsible { /* Remove margin between column settings and column header */
@@ -4527,6 +4560,44 @@ div[tabindex="-1"] + div[tabindex="-1"] > .status__wrapper > .status-reply.statu
     padding: 10px 15px;
 }
 
+.app-body .explore__suggestions__card {
+    border-bottom: 2px solid var(--color-content-secondary-bg);
+    gap: 2px;
+    padding-bottom: 14px;
+}
+.app-body .explore__suggestions__card__source span {
+    background-color: var(--color-content-secondary-bg);
+    padding: 6px 12px;
+    display: inline-block;
+    border-radius: 50px;
+    color: var(--color-fg-muted);
+    font-weight: 500;
+}
+.app-body .explore__suggestions__card__body__main__name-button .display-name__account {
+    color: var(--color-content-fg);
+    opacity: .75;
+}
+.app-body .explore__suggestions__card .icon-button {
+    background-color: var(--color-content-secondary-bg);
+    color: var(--color-fg-muted);
+    padding: 6px;
+    border: 0;
+}
+.app-body .explore__suggestions__card .icon-button:is(:active, :hover) {
+    background-color: var(--color-accent-bg);
+}
+@media screen and (min-width:1173px) {
+    .app-body .explore__suggestions__card .icon-button {
+        opacity: 0;
+        transform: translateX(50%);
+        transition: all .3s;
+    }
+    .app-body .explore__suggestions__card:hover .icon-button {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 
 /* 📰 Trending stories */
 .app-body .story {
@@ -4781,8 +4852,9 @@ div[tabindex="-1"] + div[tabindex="-1"] > .status__wrapper > .status-reply.statu
         transform: scale(200%) translate(100vw, 100vh) rotate(600deg);
     }
 }
-.app-body:has(.search__input[value="Tangerine UI"])::after {
-    content: "🍊";
+.app-body:has(.search__input[value="Tangerine UI"])::after,
+.app-body:has(.search__input[value="tangerine ui"])::after {
+    content: "\1F34A";
     position: fixed;
     display: block;
     text-align: center;
@@ -7043,6 +7115,7 @@ a:is(.active,
         [href*="letterboxd" i],
         [href$="trakt" i],
         [href$="TV" i],
+        [href$="cinema" i],
         [href*="nowwatching" i],
         [href*="WatchingNow" i],
         [href*="movie" i],
@@ -7074,7 +7147,7 @@ a:is(.active,
         [href*="SilentSunday" i],
         [href*="sunset" i],
         [href*="sunrise" i],
-        [href$="sky" i],
+        [href$="/sky" i],
         [href*="skyblue" i],
         [href*="ocean" i]
     )
@@ -7164,6 +7237,7 @@ a:is(.active,
     .trends__item__name a:is(
         [href$="apple" i],
         [href$="macos" i],
+        [href$="/mac" i],
         [href$="ios" i],
         [href*="ipad" i],
         [href*="iphone" i],
@@ -7227,6 +7301,7 @@ a:is(.active,
         [href$="/fifa" i],
         [href$="/fifaworldcup" i],
         [href$="/soccer" i],
+        [href*="/euro202" i],
         [href$="/mls" i],
         [href*="/sport" i]
     )
