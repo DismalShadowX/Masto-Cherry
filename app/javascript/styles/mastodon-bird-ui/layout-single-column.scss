@@ -1,8 +1,7 @@
 /* Mastodon Bird UI by @rolle@mementomori.social
-   2.0.0rc42 */
-
+   2.0.0rc43 */
 /* Mastodon Custom UI modified by @shadow@everythingbagel.social
-   1.0.0 */
+   1.0.1 */
 
 /* CSS variables */
 :root {
@@ -13,16 +12,16 @@
   --color-brand-twitter-mud: #273340;
   --color-brand-twitter-dark: #232543;
   --color-brand-twitter-threaded-line: #425364;
-  --color-brand-mastodon: #1E90FF;
-  --color-brand-mastodon-links: #FFD700;
-  --color-brand-mastodon-bg: #212121;
+  --color-brand-mastodon: #6364ff;
+  --color-brand-mastodon-links: #858afa;
+  --color-brand-mastodon-bg: #1e2028;
   --color-brand-mastodon-dim: #717c9b;
-  --color-brand-mastodon-mud: #424242;
-  --color-brand-mastodon-dark: #424242;
+  --color-brand-mastodon-mud: rgb(39 44 64 / .5);
+  --color-brand-mastodon-dark: #232543;
   --color-brand-mastodon-threaded-line: #434264;
   --color-brand-mastodon-text-light: #8493a7;
   --color-bg-compose-form: #282828 !important;
-  --color-bg-compose-form-focus: #424242 !important;
+  --color-bg-compose-form-focus: #424242 !important;  
 
   /* Colors */
   /* Note: Remember to search for the DIM hex
@@ -1843,6 +1842,11 @@ body.embed .detailed-status__meta .detailed-status__link .fa-retweet,
   background-color: var(--color-bg-75);
   border-color: var(--color-border);
   padding: 0;
+}
+
+/* Fix Create account button not clickable on mobile */
+.ui__header:has(.button[href="/auth/sign_up"]) {
+  z-index: 4;
 }
 
 @media (min-width: 1175px) {
