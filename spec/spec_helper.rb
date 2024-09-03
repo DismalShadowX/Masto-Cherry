@@ -28,7 +28,7 @@ RSpec.configure do |config|
   end
 
   config.after :suite do
-    FileUtils.rm_rf(Dir[Rails.root.join('spec', 'test_files')])
+    FileUtils.rm_rf(Rails.root.glob('spec/test_files'))
   end
 
   # Use the GitHub Annotations formatter for CI
@@ -39,11 +39,7 @@ RSpec.configure do |config|
 end
 
 def body_as_json
-  json_str_to_hash(response.body)
-end
-
-def json_str_to_hash(str)
-  JSON.parse(str, symbolize_names: true)
+  response.parsed_body
 end
 
 def serialized_record_json(record, serializer, adapter: nil)
