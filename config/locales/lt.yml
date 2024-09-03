@@ -449,7 +449,7 @@ lt:
       moderation:
         all: Visi
         limited: Limituotas
-        title: Moderacija
+        title: Prižiūrėjimas
       public_comment: Viešas komentaras
       title: Federacija
       total_blocked_by_us: Mes užblokavome
@@ -582,6 +582,8 @@ lt:
       trending: Tendencinga
       with_media: Su medija
     system_checks:
+      database_schema_check:
+        message_html: Laukiama duomenų bazės perkėlimo. Paleisk juos, kad įsitikintum, jog programa veikia taip, kaip tikimasi.
       elasticsearch_health_yellow:
         message_html: Elasticsearch klasteris yra nesveikas (geltona būsena), galbūt norėsi išsiaiškinti priežastį
       elasticsearch_preset:
@@ -605,6 +607,7 @@ lt:
       name: Pavadinimas
       newest: Naujausias
       oldest: Seniausias
+      open: Peržiūrėti viešai
       reset: Atkurti
       search: Paieška
       title: Saitažodžiai
@@ -835,7 +838,7 @@ lt:
       title: Nepavyko saugumo patvirtinimas
     '429': Stabdomas
     '500':
-      content: Atsiprašome, tačiau mūsų pusėje įvyko klaida.
+      content: Atsiprašome, bet kažkas nutiko ne taip mūsų pusėje.
       title: Netinkamas puslapis
     noscript_html: Kad naudotumėtės Mastodon web aplikacija, prašome įsijungti JavaScript. Alternatyviai, pabandykite viena iš <a href="%{apps_path}">vietinių aplikacijų</a> Mastodon savo platformai.
   exports:
@@ -1116,6 +1119,7 @@ lt:
     keep_self_bookmark: Laikyti įrašus, kuriuos pažymėjai
     keep_self_bookmark_hint: Neištrina tavo pačių įrašų, jei esi juos pažymėjęs (-usi)
     keep_self_fav_hint: Neištrina tavo pačių įrašų, jei esi juos pamėgęs (-usi)
+    min_age_label: Amžiaus riba
   stream_entries:
     sensitive_content: Jautrus turinys
   themes:

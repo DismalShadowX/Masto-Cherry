@@ -44,7 +44,7 @@ require 'chewy/rspec'
 require 'email_spec/rspec'
 require 'test_prof/recipes/rspec/before_all'
 
-Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
+Rails.root.glob('spec/support/**/*.rb').each { |f| require f }
 
 ActiveRecord::Migration.maintain_test_schema!
 WebMock.disable_net_connect!(
@@ -176,5 +176,5 @@ def stub_reset_connection_pools
   # TODO: Is there a better way to correctly run specs without stubbing this?
   # (Avoids reset_connection_pools! in test env)
   allow(ActiveRecord::Base).to receive(:establish_connection)
-  allow(RedisConfiguration).to receive(:establish_pool)
+  allow(RedisConnection).to receive(:establish_pool)
 end
