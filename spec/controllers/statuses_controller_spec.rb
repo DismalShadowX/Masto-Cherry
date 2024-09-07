@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe StatusesController do
+RSpec.describe StatusesController do
   render_views
 
   describe 'GET #show' do
@@ -81,7 +81,7 @@ describe StatusesController do
             'Content-Type' => include('application/activity+json'),
             'Link' => satisfy { |header| header.to_s.include?('activity+json') }
           )
-          expect(body_as_json)
+          expect(response.parsed_body)
             .to include(content: include(status.text))
         end
       end
@@ -186,7 +186,7 @@ describe StatusesController do
               'Content-Type' => include('application/activity+json'),
               'Link' => satisfy { |header| header.to_s.include?('activity+json') }
             )
-            expect(body_as_json)
+            expect(response.parsed_body)
               .to include(content: include(status.text))
           end
         end
@@ -230,7 +230,7 @@ describe StatusesController do
                 'Content-Type' => include('application/activity+json'),
                 'Link' => satisfy { |header| header.to_s.include?('activity+json') }
               )
-              expect(body_as_json)
+              expect(response.parsed_body)
                 .to include(content: include(status.text))
             end
           end
@@ -296,7 +296,7 @@ describe StatusesController do
                 'Content-Type' => include('application/activity+json'),
                 'Link' => satisfy { |header| header.to_s.include?('activity+json') }
               )
-              expect(body_as_json)
+              expect(response.parsed_body)
                 .to include(content: include(status.text))
             end
           end
@@ -387,7 +387,7 @@ describe StatusesController do
               'Content-Type' => include('application/activity+json'),
               'Link' => satisfy { |header| header.to_s.include?('activity+json') }
             )
-            expect(body_as_json)
+            expect(response.parsed_body)
               .to include(content: include(status.text))
           end
         end
@@ -431,7 +431,7 @@ describe StatusesController do
                 'Link' => satisfy { |header| header.to_s.include?('activity+json') }
               )
 
-              expect(body_as_json)
+              expect(response.parsed_body)
                 .to include(content: include(status.text))
             end
           end
@@ -497,7 +497,7 @@ describe StatusesController do
                 'Content-Type' => include('application/activity+json'),
                 'Link' => satisfy { |header| header.to_s.include?('activity+json') }
               )
-              expect(body_as_json)
+              expect(response.parsed_body)
                 .to include(content: include(status.text))
             end
           end
