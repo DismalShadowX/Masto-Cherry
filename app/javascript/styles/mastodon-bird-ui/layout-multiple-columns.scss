@@ -1,8 +1,7 @@
-  /* Mastodon Bird UI by @rolle@mementomori.social
-   2.0.0rc49 */
-
+/* Mastodon Bird UI by @rolle@mementomori.social
+   2.0.0rc51 */
 /* Mastodon Custom UI modified by @shadow@everythingbagel.social
-   1.0.1 */
+   1.0.2 */
 
 /* CSS variables */
 :root {
@@ -13,16 +12,14 @@
   --color-brand-twitter-mud: #273340;
   --color-brand-twitter-dark: #232543;
   --color-brand-twitter-threaded-line: #425364;
-  --color-brand-mastodon: #1E90FF;
-  --color-brand-mastodon-links: #FFD700;
-  --color-brand-mastodon-bg: #212121;
+  --color-brand-mastodon: #6364ff;
+  --color-brand-mastodon-links: #858afa;
+  --color-brand-mastodon-bg: #1e2028;
   --color-brand-mastodon-dim: #717c9b;
-  --color-brand-mastodon-mud: #424242;
-  --color-brand-mastodon-dark: #424242;
+  --color-brand-mastodon-mud: rgb(39 44 64 / .5);
+  --color-brand-mastodon-dark: #232543;
   --color-brand-mastodon-threaded-line: #434264;
   --color-brand-mastodon-text-light: #8493a7;
-  --color-bg-compose-form: #282828 !important;
-  --color-bg-compose-form-focus: #424242 !important;
 
   /* Colors */
   /* Note: Remember to search for the DIM hex
@@ -1071,6 +1068,7 @@ body.embed .status__content a,
 }
 
 /* Unread message */
+.layout-multiple-columns .notification-ungrouped--unread,
 .layout-multiple-columns .conversation--unread,
 .layout-multiple-columns .notification.unread:hover,
 .layout-multiple-columns .notification.unread,
