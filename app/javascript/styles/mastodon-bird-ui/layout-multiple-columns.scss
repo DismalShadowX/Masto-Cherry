@@ -1,5 +1,5 @@
 /* Mastodon Bird UI by @rolle@mementomori.social
-   2.0.0rc51 */
+   2.0.0rc54 */
 /* Mastodon Custom UI modified by @shadow@everythingbagel.social
    1.0.2 */
 
@@ -20,8 +20,8 @@
   --color-brand-mastodon-dark: #424242;
   --color-brand-mastodon-threaded-line: #434264;
   --color-brand-mastodon-text-light: #8493a7;
-  --color-bg-compose-form: #282828;
-  --color-bg-compose-form-focus: #424242;
+  --color-bg-compose-form: #282828 !important;
+  --color-bg-compose-form-focus: #424242 !important;
 
   /* Colors */
   /* Note: Remember to search for the DIM hex
@@ -2079,6 +2079,7 @@ body.embed .detailed-status__meta .detailed-status__link .icon-retweet,
 
 /* Hide scrollbars for .navigation-panel for Chrome and Safari */
 .dropdown-menu__container__list--scrollable::-webkit-scrollbar,
+.layout-multiple-columns .navigation-panel__menu::-webkit-scrollbar,
 .layout-multiple-columns .navigation-panel::-webkit-scrollbar {
   display: none;
   width: 4px;
@@ -3145,104 +3146,15 @@ body.embed .button.logo-button:hover,
   width: 30px !important;
 }
 
+.layout-single-column .navigation-panel__logo {
+  order: 1;
+}
+
+.layout-single-column .navigation-panel__menu {
+  order: 2;
+}
+
 @media screen and (min-width: 890px) {
-  /* Hide the space between Lists and the actual lists */
-  .layout-multiple-columns .list-panel > hr,
-  .layout-multiple-columns .list-panel + hr {
-    display: none;
-  }
-
-  /* Hide lists if there's not enough space on desktop vertically */
-  .layout-multiple-columns .list-panel {
-    display: none;
-    opacity: 0;
-    transition: all 200ms;
-  }
-
-  .layout-multiple-columns .list-panel:focus,
-  .layout-multiple-columns .list-panel:hover,
-  .layout-multiple-columns .column-link[href="/lists"]:focus ~ .list-panel,
-  .layout-multiple-columns .column-link[href="/lists"]:hover ~ .list-panel {
-    display: block;
-    opacity: 1;
-  }
-
-
-  /* Order of the side nav items */
-  .layout-multiple-columns .navigation-panel__logo {
-    order: 1;
-  }
-
-  .layout-multiple-columns .column-link[href="/home"] {
-    order: 2;
-  }
-
-  .layout-multiple-columns .column-link[href="/notifications"] {
-    order: 3;
-  }
-
-  .layout-multiple-columns .column-link[href="/explore"] {
-    order: 4;
-  }
-
-  .layout-multiple-columns .column-link[href="/public/local"] {
-    order: 5;
-  }
-
-  .layout-multiple-columns .column-link[href="/public"] {
-    order: 6;
-  }
-
-  .layout-multiple-columns .column-link[href="/conversations"] {
-    order: 7;
-  }
-
-  .layout-multiple-columns .column-link[href='/follow_requests'] {
-    order: 8;
-  }
-
-  .layout-multiple-columns .column-link[href="/bookmarks"] {
-    order: 9;
-  }
-
-  .layout-multiple-columns .column-link[href="/favourites"] {
-    order: 10;
-  }
-
-  .layout-multiple-columns .column-link[href="/lists"] {
-    order: 12;
-  }
-
-  .layout-multiple-columns .column-link[href="/admin/dashboard"] {
-    order: 11;
-  }
-
-  .layout-multiple-columns .column-link[href="/admin/reports"] {
-    order: 12;
-  }
-
-  /* stylelint-disable-next-line no-duplicate-selectors */
-  .layout-multiple-columns .list-panel {
-    order: 13;
-  }
-
-  .layout-multiple-columns .column-link[href="/settings/preferences"] {
-    order: 11;
-  }
-
-  .layout-multiple-columns .navigation-panel__sign-in-banner,
-  .layout-multiple-columns .navigation-panel__legal {
-    order: 14;
-  }
-
-  .layout-multiple-columns .flex-spacer {
-    order: 15;
-  }
-
-  .layout-multiple-columns .getting-started__trends {
-    order: 16;
-  }
-
   .layout-multiple-columns .status__action-bar .icon-button {
     position: relative;
   }
@@ -3770,11 +3682,22 @@ body.embed .button.logo-button:hover,
     width: 100vw;
   }
 
-  .layout-multiple-columns .columns-area__panels__pane--navigational .navigation-panel {
+  .layout-single-column .columns-area__panels__pane--navigational .navigation-panel {
+    display: block;
+    padding: 0;
+  }
+
+  .layout-single-column .columns-area__panels__pane--navigational .navigation-panel .flex-spacer {
+    display: none;
+  }
+
+  .layout-single-column .columns-area__panels__pane--navigational .navigation-panel__menu {
     flex-direction: row;
+    flex-wrap: nowrap;
     gap: 0;
     height: 100%;
     overflow-x: auto;
+    overflow-y: hidden;
     padding: 0;
   }
 
@@ -3805,8 +3728,8 @@ body.embed .button.logo-button:hover,
   }
 
   .columns-area__panels__pane--navigational .column-link__icon.icon-ellipsis-h {
+    background-image: var(--icon-more);
     position: relative;
-    top: -4px;
   }
 
   .layout-multiple-columns .columns-area__panels__main > div,
@@ -3878,6 +3801,8 @@ body.embed .button.logo-button:hover,
   }
 
   .layout-multiple-columns .navigation-panel .navigation-panel__legal {
+    display: flex;
+    justify-content: center;
     order: 999;
     text-align: center;
   }
