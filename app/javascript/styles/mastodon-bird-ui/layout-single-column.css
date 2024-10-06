@@ -1,5 +1,5 @@
 /* Mastodon Bird UI by @rolle@mementomori.social
-   2.0.0rc54 */
+   2.0.0rc55 */
 /* Mastodon Custom UI modified by @shadow@everythingbagel.social
    1.0.2 */
 
@@ -420,13 +420,6 @@ body.layout-single-column {
 .layout-single-column .ui {
   display: flex;
   width: 100%;
-}
-
-/* Fix weird horizontal overflow */
-@media (min-width: 1175px) and (max-width: 1330px) {
-  .layout-single-column .ui {
-    width: unset;
-  }
 }
 
 /* Text color */
@@ -1726,6 +1719,10 @@ body.embed .detailed-status .video-player,
   width: 100% !important;
 }
 
+.layout-single-column .media-gallery__item {
+  outline: 0;
+}
+
 .layout-single-column .media-gallery > .media-gallery__item:nth-of-type(odd),
 .layout-single-column .media-gallery > .media-gallery__item:nth-of-type(odd) > a,
 .layout-single-column .media-gallery__preview:nth-of-type(odd),
@@ -2130,7 +2127,7 @@ body.embed .detailed-status__meta .detailed-status__link .fa-retweet,
 .layout-single-column .status .status__content:has(.status__content__text:empty) + .media-gallery,
 .layout-single-column .detailed-status .status__content:has(.status__content__text:empty) + .audio-player,
 .layout-single-column .detailed-status .status__content:has(.status__content__text:empty) + .video-player,
-.layout-single-column .detailed-status .status__content:has(.status__content__text:empty) + .media-gallery {
+.layout-single-column .detailed-status .status__content:has(.status__content__text:empty) + .media-gallery:not(.compose-form__uploads) {
   margin-top: calc(var(--gap-default) / 2);
 }
 
@@ -2182,7 +2179,7 @@ body.embed .detailed-status__meta .detailed-status__link .fa-retweet,
 .layout-single-column .navigation-panel {
   box-sizing: border-box;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   margin-top: 0;
   overflow-y: auto;
   padding: 10px;
@@ -2222,6 +2219,7 @@ body.embed .detailed-status__meta .detailed-status__link .fa-retweet,
   padding-right: calc(var(--gap-column-link) * 1.5);
   padding-top: calc(var(--gap-column-link) + 4px);
   transition: all 100ms;
+  width: 100%;
 }
 
 [dir="rtl"] .layout-single-column .column-link {
@@ -3190,6 +3188,13 @@ body.embed .button.logo-button:hover,
   z-index: 4;
 }
 
+body .compose-form .compose-form__uploads {
+  margin-left: 0;
+  margin-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
 /* New compose form buttons from 4.3.0-alpha 2024-01-27 */
 .layout-single-column .compose-form__dropdowns {
   gap: 10px;
@@ -3378,6 +3383,12 @@ body.embed .button.logo-button:hover,
 .layout-single-column .navigation-panel__menu {
   display: flex;
   flex-wrap: wrap;
+}
+
+@media screen and (max-height: 980px) {
+  .navigation-panel .column-link.column-link--optional {
+    display: none;
+  }
 }
 
 /* Order of items in v4.3.0-beta2-2024-09-29 */
