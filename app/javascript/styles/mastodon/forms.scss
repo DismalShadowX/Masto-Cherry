@@ -19,14 +19,12 @@ code {
   margin-bottom: 24px;
 }
 
-form.button_to {
-  display: inline-block;
-}
-
 .fade-out-top {
   position: relative;
   overflow: hidden;
   height: 160px;
+  max-width: 566px;
+  margin-inline: auto;
 
   &::after {
     content: '';
