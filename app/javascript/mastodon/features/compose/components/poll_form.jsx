@@ -82,7 +82,7 @@ const Option = ({ multipleChoice, index, title, autoFocus }) => {
 
       <AutosuggestInput
         placeholder={intl.formatMessage(messages.option_placeholder, { number: index + 1 })}
-        maxLength={50}
+        maxLength={100}
         value={title}
         lang={lang}
         spellCheck
@@ -147,6 +147,7 @@ export const PollForm = () => {
           { value: 86400, label: intl.formatMessage(messages.days, { number: 1 })},
           { value: 259200, label: intl.formatMessage(messages.days, { number: 3 })},
           { value: 604800, label: intl.formatMessage(messages.days, { number: 7 })},
+          { value: 1209600, label: intl.formatMessage(messages.days, { number: 14 })},
         ]} value={expiresIn} onChange={handleDurationChange} />
 
         <div className='compose-form__poll__footer__sep' />
