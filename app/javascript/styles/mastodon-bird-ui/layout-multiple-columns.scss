@@ -1,5 +1,5 @@
 /* Mastodon Bird UI by @rolle@mementomori.social
-   2.0.6rc4 */
+   2.1.2rc2 */
 
 /* Mastodon Custom UI modified by @shadow@everythingbagel.social
    1.0.3 */
@@ -2387,6 +2387,12 @@ body.embed .detailed-status__meta .detailed-status__link .icon-retweet,
   opacity: 1;
 }
 
+/* Search icon fix for 4.4.0-alpha.1+mementomods-2024-12-15 changes */
+.layout-multiple-columns .search__icon {
+  right: 0;
+  top: 0;
+}
+
 /* Search */
 .layout-multiple-columns .search .search__icon .icon-search {
   background-image: var(--icon-search);
@@ -3353,7 +3359,9 @@ body .compose-form .compose-form__uploads {
 .layout-multiple-columns .load-more path,
 .layout-multiple-columns .account__domain-pill__popout__parts > div:nth-child(2) path,
 .layout-multiple-columns .column-header__button .icon-sliders > path,
-.compose-form .icon-close > path {
+.compose-form .icon-close > path,
+.layout-single-column .item-list .lists__item__title path,
+.layout-single-column .lists__item .icon-button.active path {
   display: none;
 }
 
@@ -4243,6 +4251,7 @@ div[tabindex="-1"] + div[tabindex="-1"] > .status__wrapper > .status-reply.statu
 .layout-multiple-columns .notification-group--favourite .icon-star,
 .layout-multiple-columns .notification-favourite .icon-star {
   background-image: var(--icon-heart-notification);
+  background-repeat: no-repeat;
 }
 
 .layout-multiple-columns .notification__filter-bar .icon-star,
@@ -4298,6 +4307,7 @@ div[tabindex="-1"] + div[tabindex="-1"] > .status__wrapper > .status-reply.statu
   background-size: unset;
   /* stylelint-disable-next-line */
   content: '' !important;
+  height: 100px;
   left: -38px;
   pointer-events: none;
   position: absolute;
@@ -4385,6 +4395,7 @@ div[tabindex="-1"] + div[tabindex="-1"] > .status__wrapper > .status-reply.statu
 .layout-multiple-columns .notification-group--favourite .icon-star,
 .layout-multiple-columns .notification-favourite .icon-star {
   background-image: var(--icon-star-notification);
+  background-repeat: no-repeat;
 }
 
 .layout-multiple-columns .notification__filter-bar .active .icon-star {
@@ -4424,6 +4435,7 @@ div[tabindex="-1"] + div[tabindex="-1"] > .status__wrapper > .status-reply.statu
   top: 0;
   transform: none;
   width: unset;
+  height: unset !important;
 }
 
 .layout-multiple-columns.no-reduce-motion .icon-button.star-icon.active .icon-star {
@@ -4541,9 +4553,9 @@ div[tabindex="-1"] + div[tabindex="-1"] > .status__wrapper > .status-reply.statu
 }
 
 .layout-multiple-columns button.icon-button.icon-button--with-counter.activate.star-icon > .icon-star {
+  left: 0 !important;
   position: absolute !important;
   top: unset !important;
-  left: -40px !important;
 }
 
 @media (hover: none) {
