@@ -60,6 +60,7 @@ pt-PT:
       error:
         title: Ocorreu um erro
       new:
+        prompt_html: "%{client_name} gostaria de obter autorização para aceder à sua conta. <strong>Só deve aprovar este pedido se reconhecer e confiar nesta fonte.</strong>"
         review_permissions: Rever permissões
         title: Autorização necessária
       show:
@@ -184,9 +185,9 @@ pt-PT:
       write: alterar todos os dados da sua conta
       write:accounts: alterar o seu perfil
       write:blocks: bloquear contas e domínios
-      write:bookmarks: marcar publicações
+      write:bookmarks: publicações marcadas
       write:conversations: silenciar e eliminar conversas
-      write:favourites: favoritar publicações
+      write:favourites: publicações favoritas
       write:filters: criar filtros
       write:follows: seguir pessoas
       write:lists: criar listas
